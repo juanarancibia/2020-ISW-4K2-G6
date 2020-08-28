@@ -44,7 +44,7 @@
 ### Glosario
 
 | Sigla  | Descripción |
-| :------------ | -----:|
+| :------------ | :-----|
 | \<Año\> | numero de de cuatro digitos que identifica el año de cursado, en el formato 20XX.
 | \<Cuatrimestre\> | Un digito numerico que identifica el primer cuatrimestre con un 1 y el segundo con un 2 acompañado de la palabra Cuat - Cuat.
 | \<NroFilmina\> | numero de dos digitos incremental que identifica el numero de filmina de la catedra.
