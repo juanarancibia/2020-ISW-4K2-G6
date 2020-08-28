@@ -40,7 +40,7 @@
 | Template Examen teórico | \<Año>_\<Cuatrimestre>_ISW _\<ParcialNro>_Parcial_Template.docx | /Cursado/Teórico/MaterialComplementario/ExamenesTeoricos
 | Examen Teórico | \<Año>_\<Cuatrimestre>_ISW4k2 _\<ParcialNro>_Parcial_\<Legajo>.docx | /Cursado/Teórico/MaterialComplementario/ExamenesTeoricos
 | Material Bibliográfico | \<NombreDocumento>.pdf | /Cursado/Teórico/MaterialComplementario/Bibliografía
-| Resúmenes | \<Año>_\<Cuatrimestre>_ISW _\<NroParcial>_Parcial.docx | /Cursado/Teórico/MaterialComplementario/Resúmenes
+| Resúmenes | \<Año>_\<Cuatrimestre>_ISW _\<ParcialNro>_Parcial.docx | /Cursado/Teórico/MaterialComplementario/Resúmenes
 | Trabajos Conceptuales | \<Año>_\<Cuatrimestre>_ISW _\<NroTrabajoConceptual> _Trabajo_Conceptual_\<Tema> _ Grupo\<NroGrupo>.pdf | /Cursado/Teórico/TrabajosConceptuales
 | Enunciado Trabajos Prácticos | \<Año>_\<Cuatrimestre>_ISW_EnunciadoTrabajosPracticos.pdf |/Cursado/Practico/TrabajosPracticos
 | Trabajo Practico No evaluable N° | \<Año>_ \<Cuatrimestre>_ \<NombreTP>_ Grupo\<NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/NoEvaluables/TPN°
