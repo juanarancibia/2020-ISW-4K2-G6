@@ -16,7 +16,15 @@
 │        ├── Clases
 │        │   └── TrabajosPracticos
 │        │          ├── Evaluables
+│        │          │   ├── TP1
+│        │          │   ├── .
+│        │          │   ├── ..
+│        │          │   └── TPn
 │        │          └── NoEvaluables
+│        │              ├── TP1
+│        │              ├── .
+│        │              ├── ..
+│        │              └── TPn
 │        └── EjerciciosResueltos
 └── LineasBase
 
