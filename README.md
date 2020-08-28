@@ -25,21 +25,21 @@
 
 | Nombre  | Regla de nombrado  | Ubicación física |
 | :------------ |:---------------:| -----:|
-| Toma de Nota teórico | \<Año>_<Cuatrimestre>_TomaDeNotaTeorico_ISW.docx | /Cursado/Teórico/Clases
+| Toma de Nota teórico | \<Año>_\<Cuatrimestre>_TomaDeNotaTeorico_ISW.docx | /Cursado/Teórico/Clases
 | Filminas de Catedra | \<NroFilmina>_<Año>_<NombreTema>.pdf | /Cursado/Teórico/Clases/Filminas
-| Links Clases Teóricos | \<Año>_<Cuatrimestre>_LinkClasesTeorico_ISW.txt | /Cursado/Teórico/Clases
-| Template Examen teórico | <Año>_<Cuatrimestre>_ISW_<ParcialNro>_Parcial_Template.docx | /Cursado/Teórico/MaterialComplementario/ExamenesTeoricos
-| Examen Teórico | <Año>_<Cuatrimestre>_ISW4k2_<ParcialNro>_Parcial_<Legajo>.docx | /Cursado/Teórico/MaterialComplementario/ExamenesTeoricos
-| Material Bibliográfico | <NombreDocumento>.pdf | /Cursado/Teórico/MaterialComplementario/Bibliografía
-| Resúmenes | <Año>_<Cuatrimestre>_ISW_<NroParcial>_Parcial.docx | /Cursado/Teórico/MaterialComplementario/Resúmenes
-| Trabajos Conceptuales | <Año>_<Cuatrimestre>_ISW_<NroTrabajoConceptual>_Trabajo_Conceptual_<Tema>_ Grupo <NroGrupo>.pdf | /Cursado/Teórico/TrabajosConceptuales
-| Enunciado Trabajos Prácticos | <Año>_<Cuatrimestre>_ISW_EnunciadoTrabajosPracticos.pdf |/Cursado/Practico/TrabajosPracticos
-| Trabajo Practico No evaluable N° | <Año>_<Cuatrimestre>_<NombreTP>_ Grupo <NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/NoEvaluables/TPN°
-| Trabajo Practico evaluable N° | <Año>_<Cuatrimestre>_<NombreTP>_Grupo<NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/Evaluables/TPN°
-| Links clases Practicas |<Año>_<Cuatrimestre>_LinkClasesPractico_ISW.txt | /Cursado/Practico
-| Guía Ejercicios Resueltos | <Año>_<Cuatrimestre>_Guia_Ejercicios_Practicos_Resueltos.pdf | /Cursado/Practico/EjerciciosResueltos
-|Modalidad Académica | <Año>_<Cuatrimestre>_UTN_FRC_Modalidad_Ing_SW.pdf | /
-|Línea Base | <Año><Cuatrimestre>_L_BASE_PARCIAL<ParcialNro><Nombre_L_B> | /LineasBase
+| Links Clases Teóricos | \<Año>_\<Cuatrimestre>_LinkClasesTeorico_ISW.txt | /Cursado/Teórico/Clases
+| Template Examen teórico | \<Año>_\<Cuatrimestre>_ISW_<ParcialNro>_Parcial_Template.docx | /Cursado/Teórico/MaterialComplementario/ExamenesTeoricos
+| Examen Teórico | \<Año>_\<Cuatrimestre>_ISW4k2_<ParcialNro>_Parcial_<Legajo>.docx | /Cursado/Teórico/MaterialComplementario/ExamenesTeoricos
+| Material Bibliográfico | \<NombreDocumento>.pdf | /Cursado/Teórico/MaterialComplementario/Bibliografía
+| Resúmenes | \<Año>_\<Cuatrimestre>_ISW _<NroParcial>_Parcial.docx | /Cursado/Teórico/MaterialComplementario/Resúmenes
+| Trabajos Conceptuales | \<Año>_\<Cuatrimestre>_ISW_<NroTrabajoConceptual>_Trabajo_Conceptual_<Tema>_ Grupo <NroGrupo>.pdf | /Cursado/Teórico/TrabajosConceptuales
+| Enunciado Trabajos Prácticos | \<Año>_\<Cuatrimestre>_ISW_EnunciadoTrabajosPracticos.pdf |/Cursado/Practico/TrabajosPracticos
+| Trabajo Practico No evaluable N° | \<Año>_\<Cuatrimestre>_<NombreTP>_ Grupo <NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/NoEvaluables/TPN°
+| Trabajo Practico evaluable N° | \<Año>_\<Cuatrimestre>_<NombreTP>_Grupo<NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/Evaluables/TPN°
+| Links clases Practicas | \<Año>_\<Cuatrimestre>_LinkClasesPractico_ISW.txt | /Cursado/Practico
+| Guía Ejercicios Resueltos | \<Año>_\<Cuatrimestre>_Guia_Ejercicios_Practicos_Resueltos.pdf | /Cursado/Practico/EjerciciosResueltos
+|Modalidad Académica | \<Año>_\<Cuatrimestre>_UTN_FRC_Modalidad_Ing_SW.pdf | /
+|Línea Base | \<Año>_\<Cuatrimestre>_L_BASE_PARCIAL<ParcialNro><Nombre_L_B> | /LineasBase
 
 ### Glosario
 
