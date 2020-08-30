@@ -77,4 +77,4 @@
 
 #### Criterios para la creación de la linea base
 
->Se toma como parámetro para la definición de una línea base el momento en el que la catedra evalua a sus alumnos a través de un parcial en una fecha determinda por la cátedra de **Ingeniería de Software**.
+>Se toma como parámetro para la definición de una línea base el momento posterior al que la cátedra evalúa a sus alumnos a través de un parcial en una fecha determinda por la cátedra de **Ingeniería de Software**.
