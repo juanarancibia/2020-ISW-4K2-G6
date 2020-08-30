@@ -11,7 +11,7 @@
 │    │   ├── Clases
 │    │   │   └── Filminas
 │    │   ├── MaterialComplementario
-|    |   |   ├── Bibliografía
+|    |   |   ├── Bibliografia
 |    |   |   ├── ExamenesTeoricos
 |    |   |   └── Resumenes
 │    │   └── TrabajosConceptuales 
