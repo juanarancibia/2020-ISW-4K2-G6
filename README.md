@@ -7,7 +7,7 @@
 ```
 2020-ISW-4K2-G6
 ├── Cursado
-│    ├── Terico
+│    ├── Teorico
 │    │   ├── Clases
 │    │   │   └── Filminas
 │    │   ├── MaterialComplementario
@@ -17,7 +17,7 @@
 │    │   └── TrabajosConceptuales 
 │    └── Practico
 │        ├── Clases
-│        │   └── TrabajosPracticos
+│        ├── TrabajosPracticos
 │        │          ├── Evaluables
 │        │          │   ├── TP1
 │        │          │   ├── .
@@ -48,7 +48,7 @@
 | Enunciado Trabajos Prácticos | \<Año>_\<Cuatrimestre>_ISW_EnunciadoTrabajosPracticos.pdf |/Cursado/Practico/TrabajosPracticos
 | Trabajo Practico No evaluable N° | \<Año>_ \<Cuatrimestre>_ \<NombreTP>_ Grupo\<NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/NoEvaluables/TPN°
 | Trabajo Practico evaluable N° | \<Año> _\<Cuatrimestre> _\<NombreTP>_Grupo\<NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/Evaluables/TPN°
-| Links clases Practicas | \<Año>_\<Cuatrimestre>_LinkClasesPractico_ISW.txt | /Cursado/Practico
+| Links clases Practicas | \<Año>_\<Cuatrimestre>_LinkClasesPractico_ISW.txt | /Cursado/Practico/Clases
 | Toma de Nota practico | \<Año>_\<Cuatrimestre>_TomaDeNotaPractico_ISW.docx | /Cursado/Practico/Clases
 | Guía Ejercicios Resueltos | \<Año>_\<Cuatrimestre>_Guia_Ejercicios_Practicos_Resueltos.pdf | /Cursado/Practico/EjerciciosResueltos
 | Modalidad Académica | \<Año>_\<Cuatrimestre>_UTN_FRC_Modalidad_Ing_SW.pdf | /
