@@ -28,7 +28,7 @@
 │        │              ├── .
 │        │              ├── ..
 │        │              └── TPn
-│        │── EjerciciosResueltos
+│        └── EjerciciosResueltos
 │        
 └── LineasBase
 
@@ -48,7 +48,9 @@
 | Trabajos Conceptuales | \<Año>_\<Cuatrimestre>_ISW _\<NroTrabajoConceptual> _Trabajo_Conceptual_\<Tema> _ Grupo\<NroGrupo>.pdf | /Cursado/Teórico/TrabajosConceptuales
 | Enunciado Trabajos Prácticos | \<Año>_\<Cuatrimestre>_ISW_EnunciadoTrabajosPracticos.pdf |/Cursado/Practico/TrabajosPracticos
 | Trabajo Practico No evaluable N° | \<Año>_ \<Cuatrimestre>_ \<NombreTP>_ Grupo\<NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/NoEvaluables/TPN°
+| Trabajo Practico No evaluable N° | \<Año>_ \<Cuatrimestre>_ \<NombreTP>_ Grupo\<NroGrupo>.docx | /Cursado/Practico/TrabajosPracticos/NoEvaluables/TPN°
 | Trabajo Practico evaluable N° | \<Año> _\<Cuatrimestre> _\<NombreTP>_Grupo\<NroGrupo>.pdf | /Cursado/Practico/TrabajosPracticos/Evaluables/TPN°
+| Trabajo Practico evaluable N° | \<Año> _\<Cuatrimestre> _\<NombreTP>_Grupo\<NroGrupo>.docx | /Cursado/Practico/TrabajosPracticos/Evaluables/TPN°
 | Links clases Practicas | \<Año>_\<Cuatrimestre>_LinkClasesPractico_ISW.txt | /Cursado/Practico/Clases
 | Toma de Nota practico | \<Año>_\<Cuatrimestre>_TomaDeNotaPractico_ISW.docx | /Cursado/Practico/Clases
 | Guía Ejercicios Resueltos | \<Año>_\<Cuatrimestre>_Guia_Ejercicios_Practicos_Resueltos.pdf | /Cursado/Practico/EjerciciosResueltos
@@ -59,21 +61,21 @@
 
 | Sigla  | Descripción |
 | :------------ | :-----|
-| \<Año\> | numero de de cuatro dígitos que identifica el año de cursado, en el formato 20XX.
+| \<Año\> | Numero de de cuatro dígitos que identifica el año de cursado, en el formato 20XX.
 | \<Cuatrimestre\> | Un dígito numerico que identifica el primer cuatrimestre con un 1 y el segundo con un 2 acompañado de la palabra Cuat - Cuat.
-| \<NroFilmina\> | número de dos dígitos incremental que identifica el numero de filmina de la cátedra.
-| \<NombreTema\> | nombre del tema que se expone en la filmina comenzando la primera letra con mayúscula y seguida en letras minúsculas.
-| \<ParcialNro\> | número de dos dígitos que representa el parcial, siendo 01 el primer parcial.
-| \<Legajo\> | número de cinco dígitos que identifica el legajo de un alumno.
-| \<NombreDocumento\> | nombre de los documentos en letras minúsculas, comenzando cada palabra con mayúscula.
-| \<NroTrabajoConceptual\> | número de dos dígitos que representa un trabajo conceptual.
-| \<Tema\> | nombre del tema al que hace referencia el documento, comenzando cada palabra con mayúscula, seguido de minúsculas.
-| \<NroGrupo\> | número de dos dígitos que identifica al grupo.
-| \<NombreTP\> | nombre del practico evaluable, comenzando cada palabara con mayúscula, seguido de minúsculas.
-| \<NroPractico\> | número de dos dígitos que identifica al trabajo practico evaluable, siendo 01 una referencia al primer trabajo practico.
-| \<NroCasoEstudio\> | identificador numérico de dos dígitos que refiere a un caso de estudio especifico de la guia de casos de estudio.
-| \<NombreEjercicio\> | nombre del ejercicio resuelto, identificador cuyas palabras deben empezar con mayúscula seguida de minúsculas.
-| \<Nombre_L_B\> | nombre de la linea base, las palabras utilizadas empiezan con mayúscula seguida de minúsculas.
+| \<NroFilmina\> | Número de dos dígitos incremental que identifica el numero de filmina de la cátedra.
+| \<NombreTema\> | Nombre del tema que se expone en la filmina comenzando la primera letra con mayúscula y seguida en letras minúsculas.
+| \<ParcialNro\> | Número de dos dígitos que representa el parcial, siendo 01 el primer parcial.
+| \<Legajo\> | Número de cinco dígitos que identifica el legajo de un alumno.
+| \<NombreDocumento\> | Nombre de los documentos en letras minúsculas, comenzando cada palabra con mayúscula.
+| \<NroTrabajoConceptual\> | Número de dos dígitos que representa un trabajo conceptual.
+| \<Tema\> | Nombre del tema al que hace referencia el documento, comenzando cada palabra con mayúscula, seguido de minúsculas.
+| \<NroGrupo\> | Número de dos dígitos que identifica al grupo.
+| \<NombreTP\> | Nombre del practico evaluable, comenzando cada palabara con mayúscula, seguido de minúsculas.
+| \<NroPractico\> | Número de dos dígitos que identifica al trabajo practico evaluable, siendo 01 una referencia al primer trabajo practico.
+| \<NroCasoEstudio\> | Identificador numérico de dos dígitos que refiere a un caso de estudio especifico de la guia de casos de estudio.
+| \<NombreEjercicio\> | Nombre del ejercicio resuelto, identificador cuyas palabras deben empezar con mayúscula seguida de minúsculas.
+| \<Nombre_L_B\> | Nombre de la linea base, las palabras utilizadas empiezan con mayúscula seguida de minúsculas.
 
 
 #### Criterios para la creación de la linea base
