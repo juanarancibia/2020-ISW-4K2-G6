@@ -1,0 +1,29 @@
+<div class="row">
+    <legend class="col-form-label col-sm-4 pt-0"><b>Medio de Pago</b></legend>
+</div>
+<div class="row pl-4">
+    <div class="col-sm-8">
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked (change)="metodoPago()">
+            <label class="form-check-label" for="gridRadios1">
+                Efectivo
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2" (change)="metodoPago()">
+            <label class="form-check-label" for="gridRadios2">
+                Tarjeta Visa
+            </label>
+        </div>
+    </div>
+</div>
+<div *ngIf="esEfectivo" pl-4>
+    <div class="form-group row">
+        <div class="col-sm-5">
+          <input type="number" class="form-control" id="inputEmail3" placeholder="Monto a Pagar" (blur)="calcularVuelto($event)">
+        </div>
+    </div>
+</div>
+<div *ngIf="esTarjeta">
+    <h1>tarjetaa</h1>
+</div>
