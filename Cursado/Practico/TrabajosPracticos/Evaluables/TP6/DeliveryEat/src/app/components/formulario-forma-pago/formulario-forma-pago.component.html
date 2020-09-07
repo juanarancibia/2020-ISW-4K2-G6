@@ -17,13 +17,21 @@
         </div>
     </div>
 </div>
+<br>
 <div *ngIf="esEfectivo" pl-4>
     <div class="form-group row">
         <div class="col-sm-5">
-          <input type="number" class="form-control" id="inputEmail3" placeholder="Monto a Pagar" (blur)="calcularVuelto($event)">
+          <input type="number" class="form-control"  [ngClass]="{'is-invalid': montoInferior}" id="inputEmail3" placeholder="Monto a Pagar" (blur)="calcularVuelto($event)">
+          <div class="invalid-feedback" *ngIf="montoInferior">
+            {{mensajeError}}
+          </div>
+        </div>
+        <div class="col-sm-5" *ngIf="mostrarVuelto">
+            <p>Vuelto: {{vuelto}}</p>
         </div>
     </div>
 </div>
+
 <div *ngIf="esTarjeta">
-    <h1>tarjetaa</h1>
+    <app-formulario-tarjeta></app-formulario-tarjeta>
 </div>

@@ -10,7 +10,10 @@ export class FormularioFormaPagoComponent implements OnInit {
   esTarjeta: boolean = false;
   esEfectivo: boolean = true;
   vuelto: number;
-
+  montoInferior: boolean = false;
+  mensajeError: string;
+  mostrarVuelto: boolean = false;
+  
   constructor() { }
 
   ngOnInit(): void {
@@ -25,8 +28,21 @@ export class FormularioFormaPagoComponent implements OnInit {
   }
 
   calcularVuelto(e){
-    this.vuelto = parseInt((e.target as HTMLInputElement).value);
-    console.log(this.vuelto);
+    if (isNaN(parseInt((e.target as HTMLInputElement).value))) {
+      this.montoInferior = true;
+      this.mostrarVuelto = false;
+      this.mensajeError =  'Campo requerido';
+      return
+    }
+    this.vuelto = parseInt((e.target as HTMLInputElement).value) - 4000;
+    if (this.vuelto < 0) {
+      this.montoInferior = true;
+      this.mostrarVuelto = false;
+      this.mensajeError =  'El monto ingresado es inferior al total de la compra';
+      return
+    }
+    this.montoInferior = false;
+    this.mostrarVuelto = true;
   }
 
 
