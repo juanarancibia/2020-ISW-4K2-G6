@@ -171,6 +171,7 @@ export class FormularioEntregaComponent implements OnInit {
     this.actualizarFecha();
     this.validarHora();
     this.validarDatos();
+    console.log(this.datosCompartidos);
     if (this.validacionErronea) {
       alert("Faltan datos por cargar");
     } else {
