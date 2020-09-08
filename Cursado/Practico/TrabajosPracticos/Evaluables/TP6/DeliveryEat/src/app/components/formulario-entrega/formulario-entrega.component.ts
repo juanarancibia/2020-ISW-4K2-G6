@@ -44,6 +44,41 @@ export class FormularioEntregaComponent implements OnInit {
     console.log(this.fecha);
   }
 
+  validarLenghtHora(event) {
+    let value = (event.target as HTMLInputElement).value;
+    if (value.length > 2) { (event.target as HTMLInputElement).value = value.slice(0, 2); };
+    if (parseInt(value) > 23 && value.length < 3) { (event.target as HTMLInputElement).value = value.slice(0, 1); };
+    if (parseInt(value) < 0) { (event.target as HTMLInputElement).value = value.slice(0, 0); };
+    if (!value.match(/[0-9]/)) {
+      (event.target as HTMLInputElement).value = value.slice(0, 0);
+    }
+
+    if ((event.target as HTMLInputElement).id == "horas" && (event.target as HTMLInputElement).value.length == 2) {
+      (document.getElementById("minutos") as HTMLInputElement).focus();
+    }
+  }
+  validarLenghtMinuto(event) {
+    let value = (event.target as HTMLInputElement).value;
+    if (value.length > 2) { (event.target as HTMLInputElement).value = value.slice(0, 2); };
+    if (parseInt(value) > 59 && value.length < 3) { (event.target as HTMLInputElement).value = value.slice(0, 1); };
+    if (parseInt(value) < 0) { (event.target as HTMLInputElement).value = value.slice(0, 0); };
+    if (!value.match(/[0-9]/)) {
+      (event.target as HTMLInputElement).value = value.slice(0, 0);
+    }
+    if (parseInt(value) < 45 && parseInt(value) > 15 && value.length == 2) { (event.target as HTMLInputElement).value = "30" }
+    if (parseInt(value) <= 15 && parseInt(value) > 0 && value.length == 2) { (event.target as HTMLInputElement).value = "00" }
+    if (parseInt(value) >= 45 && value.length == 2) {
+      (event.target as HTMLInputElement).value = "00";
+      if (parseInt((document.getElementById("horas") as HTMLInputElement).value) < 23) {
+        (document.getElementById("horas") as HTMLInputElement).value = (parseInt((document.getElementById("horas") as HTMLInputElement).value) + 1).toString();
+      } else {
+        (document.getElementById("horas") as HTMLInputElement).value = "00"
+      }
+    }
+
+
+  }
+
 
 
 }

@@ -22,7 +22,7 @@
 </div>
 
 
-<form class="form-inline">
+<form class="form-inline mt-4">
   <div class="form-group" *ngIf="fecha">
     <div class="input-group">
       <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [displayMonths]="displayMonths"
@@ -40,5 +40,18 @@
         </button>
       </div>
     </div>
+
+    <div class="form-group col-12 mt-3 p-0 input-group">
+      <input type="number" class="form-control col-3 mr-2 text-center" placeholder="HH" aria-label="Horas" id="horas"
+        (input)="validarLenghtHora($event)"> <span class="mt-1"><b>:</b></span>
+      <input type="number" class="form-control col-3 ml-2 text-center" placeholder="MM" aria-label="Minutos"
+        id="minutos" (input)="validarLenghtMinuto($event)">
+    </div>
   </div>
+
 </form>
+<div class="row">
+  <div class="col-12 mt-4">
+    <button type="submit" class="btn btn-success w-100 ">Confirmar</button>
+  </div>
+</div>
