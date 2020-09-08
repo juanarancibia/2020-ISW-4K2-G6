@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormularioTarjetaComponent implements OnInit {
 
+  noEsVisa: boolean = false;
 
 
   constructor() { }
@@ -16,15 +17,17 @@ export class FormularioTarjetaComponent implements OnInit {
 
   }
 
-  validarTarjeta(event) {
-    let numeroTarjeta = (event.target as HTMLInputElement).value;
-
+  validarTarjeta() {
+    let numeroTarjeta = (document.getElementById("cardNumber1") as HTMLInputElement).value + (document.getElementById("cardNumber2") as HTMLInputElement).value + (document.getElementById("cardNumber3") as HTMLInputElement).value + (document.getElementById("cardNumber4") as HTMLInputElement).value
+    console.log(numeroTarjeta);
     const visa = new RegExp('^4[0-9]{0,}$');
     numeroTarjeta = numeroTarjeta.replace(/\D/g, '');
-    if (numeroTarjeta.match(visa)) {
-      console.log("es visa");
+    if (!numeroTarjeta.match(visa) || numeroTarjeta.length < 16) {
+      this.noEsVisa = true;
+    } else {
+      this.noEsVisa = false;
     }
-    console.log("no es visa");
+
   }
 
   validarLenght(event) {
@@ -33,6 +36,25 @@ export class FormularioTarjetaComponent implements OnInit {
     if (parseInt(value) <= 0) { (event.target as HTMLInputElement).value = value.slice(0, 0); };
     if (!value.match(/[0-9]/)) {
       (event.target as HTMLInputElement).value = value.slice(0, 0);
+    }
+
+    switch ((event.target as HTMLInputElement).id) {
+      case "cardNumber1":
+        if ((event.target as HTMLInputElement).value.length == 4) {
+          document.getElementById("cardNumber2").focus();
+        }
+        break;
+
+      case "cardNumber2":
+        if ((event.target as HTMLInputElement).value.length == 4) {
+          document.getElementById("cardNumber3").focus();
+        }
+        break;
+      case "cardNumber3":
+        if ((event.target as HTMLInputElement).value.length == 4) {
+          document.getElementById("cardNumber4").focus();
+        }
+        break;
     }
   }
 

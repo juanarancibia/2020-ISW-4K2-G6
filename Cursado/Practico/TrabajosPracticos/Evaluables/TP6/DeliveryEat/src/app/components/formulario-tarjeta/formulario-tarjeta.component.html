@@ -23,24 +23,26 @@
                                 Numero Tarjeta</label>
                             <div class="input-group">
                                 <input auto-next-input type="number"
-                                    class="form-control form-control-sm text-center mr-1" id="cardNumber"
-                                    placeholder="0000" required (blur)="validarTarjeta($event)"
-                                    (input)="validarLenght($event)" />
+                                    class="form-control form-control-sm text-center mr-1" id="cardNumber1"
+                                    placeholder="0000" required (input)="validarLenght($event);"
+                                    [ngClass]="{'is-invalid': noEsVisa}" />
                                 <input auto-next-input type="number"
-                                    class="form-control form-control-sm text-center mr-1" id="cardNumber"
-                                    placeholder="0000" required (blur)="validarTarjeta($event)" max="9999"
-                                    (input)="validarLenght($event)" />
+                                    class="form-control form-control-sm text-center mr-1" id="cardNumber2"
+                                    placeholder="0000" required max="9999" (input)="validarLenght($event)"
+                                    [ngClass]="{'is-invalid': noEsVisa}" />
                                 <input auto-next-input type="number"
-                                    class="form-control form-control-sm text-center mr-1" id="cardNumber"
-                                    placeholder="0000" required (blur)="validarTarjeta($event)" max="9999"
-                                    (input)="validarLenght($event)" />
-                                <input type="number" class="form-control form-control-sm text-center" id="cardNumber"
-                                    placeholder="0000" required (blur)="validarTarjeta($event)" max="9999"
-                                    (input)="validarLenght($event)" />
-
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                                    class="form-control form-control-sm text-center mr-1" id="cardNumber3"
+                                    placeholder="0000" max="9999" (input)="validarLenght($event)"
+                                    [ngClass]="{'is-invalid': noEsVisa}" />
+                                <input type="number" class="form-control form-control-sm text-center" id="cardNumber4"
+                                    placeholder="0000" required (blur)="validarTarjeta()" max="9999"
+                                    (input)="validarLenght($event)" [ngClass]="{'is-invalid': noEsVisa}" />
+                                <div class="invalid-feedback" *ngIf="noEsVisa">
+                                    No es visa!
+                                </div>
                             </div>
                         </div>
+
                         <div class="row">
                             <div class="col-xs-12 col-md-12">
                                 <div class="form-group ">
