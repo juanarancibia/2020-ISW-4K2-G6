@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbDatepicker } from '@ng-bootstrap/ng-bootstrap';
-import * as moment from 'moment'
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-formulario-entrega',
@@ -27,15 +26,15 @@ export class FormularioEntregaComponent implements OnInit {
   }
 
   calcularFechaHasta() {
-    let date = moment();
-    this.fechaDesde = { year: date.year(), month: date.month(), day: date.day() };
-    date.add(30, "days");
-    this.diaHasta = date.day();
-    this.mesHasta = date.month();
-    this.añoHasta = date.year();
-    this.fechaHasta = { year: this.añoHasta, month: this.mesHasta, day: this.diaHasta };
-    console.log(this.fechaDesde);
-    console.log(this.fechaHasta);
+
+    let fechaActual = moment();
+    let fechaActualFormato = (fechaActual.format('L'));
+    let fechaHasta = (fechaActual.add(30, "days")).format('L');
+    let fechaActualEnPartes:string[] = fechaActualFormato.split("/");
+    let fechaHastaEnPartes:string[] = fechaHasta.split("/");
+
+    this.fechaDesde = { year: parseInt(fechaActualEnPartes[2]), month: parseInt(fechaActualEnPartes[0]), day: parseInt(fechaActualEnPartes[1]) };
+    this.fechaHasta = { year: parseInt(fechaHastaEnPartes[2]), month: parseInt(fechaHastaEnPartes[0]), day: parseInt(fechaHastaEnPartes[1]) };
   }
 
 
