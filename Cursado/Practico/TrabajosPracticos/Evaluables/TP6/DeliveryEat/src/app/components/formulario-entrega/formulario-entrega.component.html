@@ -22,8 +22,8 @@
 </div>
 
 
-<form class="form-inline mt-4">
-  <div class="form-group" *ngIf="fecha">
+<form class="form-inline mt-4" *ngIf="fecha">
+  <div class="form-group">
     <div class="input-group">
       <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [displayMonths]="displayMonths"
         [navigation]="navigation" [outsideDays]="outsideDays" [showWeekNumbers]="showWeekNumbers" ngbDatepicker
@@ -40,8 +40,10 @@
         </button>
       </div>
     </div>
+  </div>
 
-    <div class="form-group col-12 mt-3 p-0 input-group">
+  <div class="form-group mt-2">
+    <div class="col-12 p-0 input-group">
       <input type="number" class="form-control col-3 mr-2 text-center" placeholder="HH" aria-label="Horas" id="horas"
         (input)="validarLenghtHora($event)"> <span class="mt-1"><b>:</b></span>
       <input type="number" class="form-control col-3 ml-2 text-center" placeholder="MM" aria-label="Minutos"
