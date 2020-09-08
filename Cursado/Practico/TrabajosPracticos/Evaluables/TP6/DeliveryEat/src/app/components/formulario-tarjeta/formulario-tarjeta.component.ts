@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./formulario-tarjeta.component.css']
 })
 export class FormularioTarjetaComponent implements OnInit {
-  
-  
+
+
 
   constructor() { }
 
@@ -25,6 +25,13 @@ export class FormularioTarjetaComponent implements OnInit {
       console.log("es visa");
     }
     console.log("no es visa");
+  }
+
+  validarLenght(event){
+    let value = (event.target as HTMLInputElement).value;
+    if (value.length > 4)
+      {(event.target as HTMLInputElement).value = value.slice(0, 4);};
+
   }
 
 }

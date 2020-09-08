@@ -1,60 +1,67 @@
 <div class="container">
-    <div class="row">
-        <div class="col-xs-12 col-md-6">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h5 class="panel-title">
-                        Datos de la tarjeta
-                    </h5>
-                </div>
-                <div class="panel-body mt-3">
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="cardNumber">
-                                Nombre Tarjeta</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control form-control-sm" id="cardNumber" placeholder="Nombre completo"
-                                    required autofocus />
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="cardNumber">
-                                Numero Tarjeta</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control form-control-sm" id="cardNumber" placeholder="Valid Card Number"
-                                    required (blur)="validarTarjeta($event)"/>
-                                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xs-12 col-md-12">
-                                <div class="form-group ">
-                                    <label for="expityMonth">
-                                        Fecha Expiracion</label>
-                                    <div class="row">
-                                    <div class="col-4 col-lg-6">
-                                        <input type="number" class="form-control form-control-sm" id="expityMonth" placeholder="MM"
-                                            required />
-                                    </div>
-                                    /
-                                    <div class="col-4 col-lg-6">
-                                        <input type="number" class="form-control form-control-sm" id="expityYear" placeholder="YY"
-                                            required /></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xs-5 col-md-5 pull-right">
-                                <div class="form-group">
-                                    <label for="cvCode">
-                                        CV</label>
-                                    <input type="password" class="form-control form-control-sm" id="cvCode" placeholder="CV" required />
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h5 class="panel-title">
+            Datos de la tarjeta
+          </h5>
+        </div>
+        <div class="panel-body mt-3">
+          <form role="form" novalidate>
+            <div class="form-group">
+              <label for="cardNumber">
+                Nombre Tarjeta</label>
+              <div class="input-group">
+                <input type="text" class="form-control form-control-sm" id="cardNumber" placeholder="Nombre completo"
+                  required autofocus />
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              </div>
             </div>
+            <div class="form-group">
+              <label for="cardNumber">
+                Numero Tarjeta</label>
+              <div class="input-group">
+                <input auto-next-input type="number" class="form-control form-control-sm text-center mr-1" id="cardNumber" placeholder="0000"
+                  required (blur)="validarTarjeta($event)" (input)="validarLenght($event)"/>
+                <input auto-next-input type="number" class="form-control form-control-sm text-center mr-1" id="cardNumber" placeholder="0000"
+                  required (blur)="validarTarjeta($event)" max="9999" (input)="validarLenght($event)"/>
+                <input auto-next-input type="number" class="form-control form-control-sm text-center mr-1" id="cardNumber" placeholder="0000"
+                  required (blur)="validarTarjeta($event)" max="9999" (input)="validarLenght($event)"/>
+                <input type="number" class="form-control form-control-sm text-center" id="cardNumber" placeholder="0000"
+                  required (blur)="validarTarjeta($event)" max="9999" (input)="validarLenght($event)"/>
+
+                <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+              </div>
             </div>
+            <div class="row">
+              <div class="col-xs-12 col-md-12">
+                <div class="form-group ">
+                  <label for="expityMonth">
+                    Fecha Expiracion</label>
+                  <div class="row">
+                    <div class="col-4 col-lg-6">
+                      <input type="number" class="form-control form-control-sm" id="expityMonth" placeholder="MM"
+                        required />
+                    </div>
+                    /
+                    <div class="col-4 col-lg-6">
+                      <input type="number" class="form-control form-control-sm" id="expityYear" placeholder="YY"
+                        required /></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-5 col-md-5 pull-right">
+                <div class="form-group">
+                  <label for="cvCode">
+                    CV</label>
+                  <input type="password" class="form-control form-control-sm" id="cvCode" placeholder="CV" required />
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
