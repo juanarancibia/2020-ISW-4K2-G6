@@ -17,6 +17,10 @@ export class FormularioDireccionComponent implements OnInit {
     if (value.length > 4) {
       (e.target as HTMLInputElement).value = value.slice(0, 4);
     }
+    if (parseInt(value) <= 0) { (event.target as HTMLInputElement).value = value.slice(0, 0); };
+    if (!value.match(/[0-9]/)) {
+      (event.target as HTMLInputElement).value = value.slice(0, 0);
+    }
   }
 }
 
