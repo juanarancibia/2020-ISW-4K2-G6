@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
+import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service';
 
 @Component({
   selector: 'app-formulario-entrega',
@@ -21,10 +22,21 @@ export class FormularioEntregaComponent implements OnInit {
 
   fecha: boolean = false;
 
-  constructor() { }
+  message: string;
+
+  numeroTarjeta: string;
+  nombreTarjeta: string;
+  cvTarjeta: string;
+  vencTarjeta: string;
+
+  constructor(private data: DatosCompartidosService) { }
 
   ngOnInit(): void {
     this.calcularFechaHasta();
+    this.data.currentNombreTarjeta.subscribe(nombreTarjeta => this.nombreTarjeta = nombreTarjeta);
+    this.data.currentNumeroTarjeta.subscribe(numeroTarjeta => this.numeroTarjeta = this.numeroTarjeta);
+    this.data.currentCVTarjeta.subscribe(cvTarjeta => this.cvTarjeta = cvTarjeta);
+    this.data.currentVencTarjeta.subscribe(vencTarjeta => this.vencTarjeta = vencTarjeta);
   }
 
   calcularFechaHasta() {
@@ -79,6 +91,9 @@ export class FormularioEntregaComponent implements OnInit {
 
   }
 
+  confirmar() {
+    this.message = "Nombre: " + this.nombreTarjeta + "/nNumero: " + this.numeroTarjeta + "/nCV: " + this.cvTarjeta + "/nFecha Vencimiento: " + this.vencTarjeta;
+  }
 
 
 }

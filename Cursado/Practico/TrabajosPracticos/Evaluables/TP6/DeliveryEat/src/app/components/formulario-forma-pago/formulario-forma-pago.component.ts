@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service'
 
 @Component({
   selector: 'app-formulario-forma-pago',
@@ -14,10 +15,14 @@ export class FormularioFormaPagoComponent implements OnInit {
   mensajeError: string;
   mostrarVuelto: boolean = false;
 
-  constructor() { }
+
+
+  constructor(private data: DatosCompartidosService) { }
 
   ngOnInit(): void {
+
   }
+
 
 
   metodoPago() {

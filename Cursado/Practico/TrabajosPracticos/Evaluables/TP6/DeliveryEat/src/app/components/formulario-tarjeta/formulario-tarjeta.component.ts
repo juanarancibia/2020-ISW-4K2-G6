@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service';
 
 
 @Component({
@@ -10,12 +11,20 @@ export class FormularioTarjetaComponent implements OnInit {
 
   noEsVisa: boolean = false;
 
+  numeroTarjeta: string;
+  nombreTarjeta: string;
+  cvTarjeta: string;
+  vencTarjeta: string;
 
-  constructor() { }
+  constructor(private data: DatosCompartidosService) { }
 
   ngOnInit(): void {
-
+    this.data.currentNombreTarjeta.subscribe(nombreTarjeta => this.nombreTarjeta = nombreTarjeta);
+    this.data.currentNumeroTarjeta.subscribe(numeroTarjeta => this.numeroTarjeta = this.numeroTarjeta);
+    this.data.currentCVTarjeta.subscribe(cvTarjeta => this.cvTarjeta = cvTarjeta);
+    this.data.currentVencTarjeta.subscribe(vencTarjeta => this.vencTarjeta = vencTarjeta);
   }
+
 
   validarTarjeta() {
     let numeroTarjeta = (document.getElementById("cardNumber1") as HTMLInputElement).value + (document.getElementById("cardNumber2") as HTMLInputElement).value + (document.getElementById("cardNumber3") as HTMLInputElement).value + (document.getElementById("cardNumber4") as HTMLInputElement).value
@@ -26,6 +35,7 @@ export class FormularioTarjetaComponent implements OnInit {
       this.noEsVisa = true;
     } else {
       this.noEsVisa = false;
+      this.data.cambiarNumeroTarjeta(numeroTarjeta.toString());
     }
 
   }
@@ -75,5 +85,17 @@ export class FormularioTarjetaComponent implements OnInit {
     if (!value.match(/[0-9]/)) {
       (event.target as HTMLInputElement).value = value.slice(0, 0);
     }
+  }
+
+  actualizarVencimiento() {
+    this.data.cambiarVencTarjeta((document.getElementById("mes") as HTMLInputElement).value + "/" + (document.getElementById("año") as HTMLInputElement).value);
+  }
+
+  actualizarNombre() {
+    this.data.cambiarNombreTarjeta((document.getElementById("nombre") as HTMLInputElement).value);
+  }
+
+  actualizarCV() {
+    this.data.cambiarCVTarjeta((document.getElementById("cv") as HTMLInputElement).value);
   }
 }
