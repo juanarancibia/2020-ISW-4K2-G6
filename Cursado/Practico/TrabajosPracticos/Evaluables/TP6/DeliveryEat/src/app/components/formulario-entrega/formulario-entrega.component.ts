@@ -24,6 +24,7 @@ export class FormularioEntregaComponent implements OnInit {
   outsideDays = 'visible';
 
   message: string;
+  resumen: string = "";
 
   fecha: boolean = false;
 
@@ -113,15 +114,15 @@ export class FormularioEntregaComponent implements OnInit {
   }
 
   validarHora() {
-    console.log((this.datosCompartidos.fecha != "" && this.datosCompartidos.horaEnvio != "" && this.datosCompartidos.minutosEnvio != ""));
     if (this.datosCompartidos.fecha != "" && this.datosCompartidos.horaEnvio != "" && this.datosCompartidos.minutosEnvio != "") {
-      console.log(this.datosCompartidos.fecha + "///" + moment().format('YYYY-MM-DD').toString());
-      console.log(this.datosCompartidos.fecha == moment().format('YYYY-MM-DD').toString());
       if (this.datosCompartidos.fecha == moment().format('YYYY-MM-DD').toString()) {
-        console.log(parseInt(this.datosCompartidos.horaEnvio) <= parseInt(moment().format('HH').toString()));
-        if (parseInt(this.datosCompartidos.horaEnvio) <= parseInt(moment().format('HH').toString())) {
-          console.log(parseInt(this.datosCompartidos.minutosEnvio) <= parseInt(moment().format('MM').toString()));
-          if (parseInt(this.datosCompartidos.minutosEnvio) <= parseInt(moment().format('MM').toString())) {
+        if (parseInt(this.datosCompartidos.horaEnvio) < parseInt(moment().format('HH').toString())) {
+          alert("Por favor ingrese una hora posterior a la actual");
+          this.validacionErronea = true;
+        }
+        else if (parseInt(this.datosCompartidos.horaEnvio) == parseInt(moment().format('HH'))) {
+          console.log(parseInt(this.datosCompartidos.minutosEnvio) + "///" + parseInt(moment().format('MM')))
+          if (parseInt(this.datosCompartidos.minutosEnvio) >= parseInt(moment().format('MM'))) {
             return;
           }
           else {
@@ -160,6 +161,10 @@ export class FormularioEntregaComponent implements OnInit {
     }
   }
 
+  openModal() {
+
+  }
+
 
   confirmar() {
     this.validacionErronea = false;
@@ -168,8 +173,27 @@ export class FormularioEntregaComponent implements OnInit {
     this.validarDatos();
     if (this.validacionErronea) {
       alert("Faltan datos por cargar");
+    } else {
+      this.resumen = "Direccion: " + this.datosCompartidos.direccion + "<br>Numero direccion: " + this.datosCompartidos.numeroDireccion + "<br>" +
+        "Ciudad: " + this.datosCompartidos.ciudad + "<br>" + "Referencia: " + this.datosCompartidos.referenciaOpcional + "<hr>";
+      if (this.datosCompartidos.metodoPagoVisa) {
+        this.resumen = this.resumen + "Nombre titular: " + this.datosCompartidos.nombreTarjeta + "<br>" + "Numero tarjeta: " + this.datosCompartidos.numeroTarjeta + "<br>" +
+          "Vencimiento: " + this.datosCompartidos.vencimientoTarjeta + "<br>" + "CV: " + this.datosCompartidos.cvTarjeta + "<hr>";
+      } else {
+        this.resumen = this.resumen + "Monto a Pagar: " + this.datosCompartidos.montoApagar + "<br>" + "Vuelto: " + this.datosCompartidos.vuelto + "<hr>";
+      }
+
+      if (this.datosCompartidos.fechaSeleccionada) {
+        this.resumen = this.resumen + "Fecha: " + this.datosCompartidos.fecha + "<br>" + "Hora: " + this.datosCompartidos.horaEnvio + ":" + this.datosCompartidos.minutosEnvio;
+      } else {
+        this.resumen = this.resumen + "Enviar lo antes posible";
+      }
+
+      (document.getElementById("divModal") as HTMLDivElement).innerHTML = this.resumen;
+
+      (document.getElementById("btnModal") as HTMLButtonElement).click();
     }
-    console.log(this.datosCompartidos);
+
   }
 
 
