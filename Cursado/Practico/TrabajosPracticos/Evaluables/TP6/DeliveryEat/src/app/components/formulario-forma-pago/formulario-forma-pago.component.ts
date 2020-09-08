@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service'
+import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service';
+import { DatosCompartidos } from 'src/app/models/datosCompartidos';
 
 @Component({
   selector: 'app-formulario-forma-pago',
@@ -17,19 +18,21 @@ export class FormularioFormaPagoComponent implements OnInit {
 
 
 
+  datosCompartidos: DatosCompartidos;
+
   constructor(private data: DatosCompartidosService) { }
 
   ngOnInit(): void {
-
+    this.data.currentDatosCompartidos.subscribe(datosCompartidos => this.datosCompartidos = datosCompartidos);
   }
-
 
 
   metodoPago() {
     this.esEfectivo = !this.esEfectivo;
     this.esTarjeta = !this.esTarjeta;
-    console.log(this.esEfectivo);
-    console.log(this.esTarjeta);
+
+    this.datosCompartidos.metodoPagoVisa = this.esTarjeta;
+    this.data.cambiarDatosCompartidos(this.datosCompartidos);
   }
 
   calcularVuelto(e) {
@@ -44,10 +47,17 @@ export class FormularioFormaPagoComponent implements OnInit {
       this.montoInferior = true;
       this.mostrarVuelto = false;
       this.mensajeError = 'El monto ingresado es inferior al total de la compra';
+      this.datosCompartidos.vuelto = "";
+      this.datosCompartidos.montoApagar = "";
+      this.data.cambiarDatosCompartidos(this.datosCompartidos);
       return
     }
     this.montoInferior = false;
     this.mostrarVuelto = true;
+
+    this.datosCompartidos.vuelto = this.vuelto.toString();
+    this.datosCompartidos.montoApagar = (e.target as HTMLInputElement).value;
+    this.data.cambiarDatosCompartidos(this.datosCompartidos);
   }
 
   validarLenght(event) {

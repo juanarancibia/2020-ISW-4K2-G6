@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import * as moment from 'moment';
 import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service';
+import { DatosCompartidos } from 'src/app/models/datosCompartidos';
 
 @Component({
   selector: 'app-formulario-entrega',
@@ -15,28 +16,24 @@ export class FormularioEntregaComponent implements OnInit {
   fechaHasta: any;
   fechaDesde: any;
 
+  validacionErronea: boolean = false;
+
   displayMonths = 1;
   navigation = 'select';
   showWeekNumbers = false;
   outsideDays = 'visible';
 
-  fecha: boolean = false;
-
   message: string;
 
-  numeroTarjeta: string;
-  nombreTarjeta: string;
-  cvTarjeta: string;
-  vencTarjeta: string;
+  fecha: boolean = false;
+
+  datosCompartidos: DatosCompartidos;
 
   constructor(private data: DatosCompartidosService) { }
 
   ngOnInit(): void {
     this.calcularFechaHasta();
-    this.data.currentNombreTarjeta.subscribe(nombreTarjeta => this.nombreTarjeta = nombreTarjeta);
-    this.data.currentNumeroTarjeta.subscribe(numeroTarjeta => this.numeroTarjeta = this.numeroTarjeta);
-    this.data.currentCVTarjeta.subscribe(cvTarjeta => this.cvTarjeta = cvTarjeta);
-    this.data.currentVencTarjeta.subscribe(vencTarjeta => this.vencTarjeta = vencTarjeta);
+    this.data.currentDatosCompartidos.subscribe(datosCompartidos => this.datosCompartidos = datosCompartidos);
   }
 
   calcularFechaHasta() {
@@ -54,6 +51,8 @@ export class FormularioEntregaComponent implements OnInit {
   desplegarFechaHora() {
     this.fecha = !this.fecha;
     console.log(this.fecha);
+    this.datosCompartidos.fechaSeleccionada = this.fecha;
+    this.data.cambiarDatosCompartidos(this.datosCompartidos);
   }
 
   validarLenghtHora(event) {
@@ -87,12 +86,90 @@ export class FormularioEntregaComponent implements OnInit {
         (document.getElementById("horas") as HTMLInputElement).value = "00"
       }
     }
-
-
   }
 
+
+  actualizarMinutos(e) {
+    if ((event.target as HTMLInputElement).value.length > 0) {
+      this.datosCompartidos.minutosEnvio = (event.target as HTMLInputElement).value;
+      this.datosCompartidos.horaEnvio = (document.getElementById("horas") as HTMLInputElement).value;
+      this.data.cambiarDatosCompartidos(this.datosCompartidos);
+    }
+  }
+  actualizarHoras(e) {
+    if ((event.target as HTMLInputElement).value.length > 0) {
+      this.datosCompartidos.horaEnvio = (event.target as HTMLInputElement).value;
+      this.data.cambiarDatosCompartidos(this.datosCompartidos);
+    }
+  }
+  actualizarFecha() {
+    console.log(this.datosCompartidos.fechaSeleccionada);
+    if (this.datosCompartidos.fechaSeleccionada) {
+      if ((document.getElementById("fecha") as HTMLInputElement).value.length > 0) {
+        this.datosCompartidos.fecha = ((document.getElementById("divFecha") as HTMLInputElement).firstChild as HTMLInputElement).value;
+        this.data.cambiarDatosCompartidos(this.datosCompartidos);
+      }
+    }
+  }
+
+  validarHora() {
+    console.log((this.datosCompartidos.fecha != "" && this.datosCompartidos.horaEnvio != "" && this.datosCompartidos.minutosEnvio != ""));
+    if (this.datosCompartidos.fecha != "" && this.datosCompartidos.horaEnvio != "" && this.datosCompartidos.minutosEnvio != "") {
+      console.log(this.datosCompartidos.fecha + "///" + moment().format('YYYY-MM-DD').toString());
+      console.log(this.datosCompartidos.fecha == moment().format('YYYY-MM-DD').toString());
+      if (this.datosCompartidos.fecha == moment().format('YYYY-MM-DD').toString()) {
+        console.log(parseInt(this.datosCompartidos.horaEnvio) <= parseInt(moment().format('HH').toString()));
+        if (parseInt(this.datosCompartidos.horaEnvio) <= parseInt(moment().format('HH').toString())) {
+          console.log(parseInt(this.datosCompartidos.minutosEnvio) <= parseInt(moment().format('MM').toString()));
+          if (parseInt(this.datosCompartidos.minutosEnvio) <= parseInt(moment().format('MM').toString())) {
+            return;
+          }
+          else {
+            alert("Por favor ingrese una hora posterior a la actual");
+            this.validacionErronea = true;
+          }
+        }
+      }
+      return;
+    }
+  }
+
+  validarDatos() {
+    if (this.datosCompartidos.direccion == "" || this.datosCompartidos.numeroDireccion == "" || this.datosCompartidos.ciudad == "" || this.datosCompartidos.ciudad == "Ciudad") {
+      this.validacionErronea = true;
+      console.log("Error direccion");
+    }
+
+    if (this.datosCompartidos.fechaSeleccionada) {
+      if (this.datosCompartidos.fecha == "" || this.datosCompartidos.horaEnvio == "" || this.datosCompartidos.minutosEnvio == "") {
+        this.validacionErronea = true;
+        console.log("Error fecha");
+      }
+    }
+
+    if (this.datosCompartidos.metodoPagoVisa) {
+      if (this.datosCompartidos.numeroTarjeta == "" || this.datosCompartidos.nombreTarjeta == "" || this.datosCompartidos.cvTarjeta == "" || this.datosCompartidos.vencimientoTarjeta == "") {
+        this.validacionErronea = true;
+        console.log("Error visa");
+      }
+    } else {
+      if (this.datosCompartidos.montoApagar == "" || this.datosCompartidos.vuelto == "") {
+        this.validacionErronea = true;
+        console.log("Error efect");
+      }
+    }
+  }
+
+
   confirmar() {
-    this.message = "Nombre: " + this.nombreTarjeta + "/nNumero: " + this.numeroTarjeta + "/nCV: " + this.cvTarjeta + "/nFecha Vencimiento: " + this.vencTarjeta;
+    this.validacionErronea = false;
+    this.actualizarFecha();
+    this.validarHora();
+    this.validarDatos();
+    if (this.validacionErronea) {
+      alert("Faltan datos por cargar");
+    }
+    console.log(this.datosCompartidos);
   }
 
 

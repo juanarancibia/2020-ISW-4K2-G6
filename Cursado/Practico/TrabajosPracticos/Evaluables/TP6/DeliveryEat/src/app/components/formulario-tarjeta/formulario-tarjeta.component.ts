@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DatosCompartidosService } from 'src/app/services/datos-compartidos.service';
+import { DatosCompartidos } from 'src/app/models/datosCompartidos';
 
 
 @Component({
@@ -11,18 +12,13 @@ export class FormularioTarjetaComponent implements OnInit {
 
   noEsVisa: boolean = false;
 
-  numeroTarjeta: string;
-  nombreTarjeta: string;
-  cvTarjeta: string;
-  vencTarjeta: string;
+  datosCompartidos: DatosCompartidos;
 
   constructor(private data: DatosCompartidosService) { }
 
   ngOnInit(): void {
-    this.data.currentNombreTarjeta.subscribe(nombreTarjeta => this.nombreTarjeta = nombreTarjeta);
-    this.data.currentNumeroTarjeta.subscribe(numeroTarjeta => this.numeroTarjeta = this.numeroTarjeta);
-    this.data.currentCVTarjeta.subscribe(cvTarjeta => this.cvTarjeta = cvTarjeta);
-    this.data.currentVencTarjeta.subscribe(vencTarjeta => this.vencTarjeta = vencTarjeta);
+    this.data.currentDatosCompartidos.subscribe(datosCompartidos => this.datosCompartidos = datosCompartidos);
+
   }
 
 
@@ -35,7 +31,8 @@ export class FormularioTarjetaComponent implements OnInit {
       this.noEsVisa = true;
     } else {
       this.noEsVisa = false;
-      this.data.cambiarNumeroTarjeta(numeroTarjeta.toString());
+      this.datosCompartidos.numeroTarjeta = numeroTarjeta.toString();
+      this.data.cambiarDatosCompartidos(this.datosCompartidos);
     }
 
   }
@@ -68,7 +65,7 @@ export class FormularioTarjetaComponent implements OnInit {
     }
   }
 
-  validarLenghtFecha(event) {
+  validarLenghtFechaMes(event) {
     let value = (event.target as HTMLInputElement).value;
     if (value.length > 2) { (event.target as HTMLInputElement).value = value.slice(0, 2); };
     if (parseInt(value) > 12 && value.length < 3) { (event.target as HTMLInputElement).value = value.slice(0, 1); };
@@ -77,6 +74,16 @@ export class FormularioTarjetaComponent implements OnInit {
       (event.target as HTMLInputElement).value = value.slice(0, 0);
     }
   }
+  validarLenghtFechaAno(event) {
+    let value = (event.target as HTMLInputElement).value;
+    if (value.length > 2) { (event.target as HTMLInputElement).value = value.slice(0, 2); };
+    if (parseInt(value) < 20 && value.length < 3) { (event.target as HTMLInputElement).value = value.slice(0, 1); };
+    if (parseInt(value) <= 0) { (event.target as HTMLInputElement).value = value.slice(0, 0); };
+    if (!value.match(/[0-9]/)) {
+      (event.target as HTMLInputElement).value = value.slice(0, 0);
+    }
+  }
+
 
   validarLenghtCV(event) {
     let value = (event.target as HTMLInputElement).value;
@@ -88,14 +95,17 @@ export class FormularioTarjetaComponent implements OnInit {
   }
 
   actualizarVencimiento() {
-    this.data.cambiarVencTarjeta((document.getElementById("mes") as HTMLInputElement).value + "/" + (document.getElementById("año") as HTMLInputElement).value);
+    this.datosCompartidos.vencimientoTarjeta = (document.getElementById("mes") as HTMLInputElement).value + "/" + (document.getElementById("año") as HTMLInputElement).value;
+    this.data.cambiarDatosCompartidos(this.datosCompartidos);
   }
 
   actualizarNombre() {
-    this.data.cambiarNombreTarjeta((document.getElementById("nombre") as HTMLInputElement).value);
+    this.datosCompartidos.nombreTarjeta = (document.getElementById("nombre") as HTMLInputElement).value;
+    this.data.cambiarDatosCompartidos(this.datosCompartidos);
   }
 
   actualizarCV() {
-    this.data.cambiarCVTarjeta((document.getElementById("cv") as HTMLInputElement).value);
+    this.datosCompartidos.cvTarjeta = (document.getElementById("cv") as HTMLInputElement).value;
+    this.data.cambiarDatosCompartidos(this.datosCompartidos);
   }
 }
