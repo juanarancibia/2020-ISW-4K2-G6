@@ -1,32 +1,33 @@
 <form>
-    <div class="form-row">
-      <div class="form-group col-8">
-        <input type="email" class="form-control" id="inputEmail4" placeholder="Dirección">
-      </div>
-      <div class="form-group col-4">
-        <input type="password" class="form-control" id="inputPassword4" placeholder="Numero">
-      </div>
+  <div class="form-row">
+    <div class="form-group col-8">
+      <input type="text" class="form-control" id="inputEmail4" placeholder="Dirección">
     </div>
-    <div class="form-row">
-      <div class="form-group col-8">
-        <select id="inputState" class="form-control">
-          <option selected disabled>Ciudad</option>
-          <option>Jesus Maria</option>
-          <option>Oliva</option>
-          <option>Arroyito</option>
-          <option>Capital</option>
-          <option>Alta Gracia</option>
-          <option>Villa Carlos Paz</option>
-          <option>Villa Dolores</option>
-          <option>Rio Tercero</option>
-          <option>Rio Cuarto</option>
-        </select>
-      </div>
+    <div class="form-group col-4">
+      <input type="number" (input)="validarLength($event)" class="form-control" id="inputPassword4" placeholder="Numero"
+        maxlength="4">
     </div>
-    <div class="form-row">
-        <div class="form-group col-8">
-            <textarea placeholder="Referencia Opcional" class="w-100"></textarea>
-        </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-8">
+      <select id="inputState" class="form-control">
+        <option selected disabled>Ciudad</option>
+        <option>Jesus Maria</option>
+        <option>Oliva</option>
+        <option>Arroyito</option>
+        <option>Capital</option>
+        <option>Alta Gracia</option>
+        <option>Villa Carlos Paz</option>
+        <option>Villa Dolores</option>
+        <option>Rio Tercero</option>
+        <option>Rio Cuarto</option>
+      </select>
     </div>
+  </div>
+  <div class="form-row">
+    <div class="form-group col-8">
+      <textarea placeholder="Referencia Opcional" class="w-100" maxlength="255"></textarea>
+    </div>
+  </div>
 
 </form>

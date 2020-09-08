@@ -12,4 +12,11 @@ export class FormularioDireccionComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  validarLength(e) {
+    var value = (e.target as HTMLInputElement).value;
+    if (value.length > 4) {
+      (e.target as HTMLInputElement).value = value.slice(0, 4);
+    }
+  }
 }
+
