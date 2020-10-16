@@ -1,16 +1,16 @@
 <form>
   <div class="form-row">
     <div class="form-group col-8">
-      <input type="text" class="form-control rounded-pill" id="inputEmail4" placeholder="Dirección">
+      <input type="text" class="form-control rounded-pill" id="inputEmail4" placeholder="Dirección" (blur)="actualizarDireccion($event)">
     </div>
     <div class="form-group col-4">
       <input type="number" (input)="validarLength($event)" class="form-control rounded-pill" id="inputPassword4" placeholder="Numero"
-        maxlength="4">
+        maxlength="4" (blur)="actualizarNumero($event)">
     </div>
   </div>
   <div class="form-row">
     <div class="form-group col-8">
-      <select id="inputState" class="form-control rounded-pill">
+      <select id="inputState" class="form-control rounded-pill" (blur)="actualizarCiudad($event)">
         <option selected disabled>Ciudad</option>
         <option>Jesus Maria</option>
         <option>Oliva</option>
@@ -26,7 +26,7 @@
   </div>
   <div class="form-row">
     <div class="form-group col-8">
-      <textarea placeholder="Referencia Opcional" class="w-100 form-control" maxlength="255" style="border-radius: 10px;"></textarea>
+      <textarea placeholder="Referencia Opcional" class="w-100 form-control" maxlength="255" style="border-radius: 10px;" (blur)="actualizarOpcional($event)"></textarea>
     </div>
   </div>
 

@@ -1,3 +1,28 @@
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1"
+  aria-labelledby="staticBackdropLabel" aria-hidden="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Confirmar entrega</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="divModal">
+
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<button type="button" id="btnModal" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop"
+  [hidden]="true">
+</button>
+
+
 <div class="row">
   <legend class="col-form-label col-sm-4 pt-0"><b>Forma Entrega</b></legend>
 </div>
@@ -24,10 +49,10 @@
 
 <form class="form-inline mt-4" *ngIf="fecha">
   <div class="form-group">
-    <div class="input-group">
+    <div class="input-group" id="divFecha">
       <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [displayMonths]="displayMonths"
         [navigation]="navigation" [outsideDays]="outsideDays" [showWeekNumbers]="showWeekNumbers" ngbDatepicker
-        #d="ngbDatepicker" [maxDate]="fechaHasta" [minDate]="fechaDesde" onkeydown="return false">
+        #d="ngbDatepicker" [maxDate]="fechaHasta" [minDate]="fechaDesde" onkeydown="return false" id="fecha">
       <div class="input-group-append">
         <button class="btn btn-outline-primary calendar" (click)="d.toggle()" type="button">
           <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-calendar-date" fill="currentColor"
@@ -45,15 +70,17 @@
   <div class="form-group mt-2">
     <div class="col-12 p-0 input-group">
       <input type="number" class="form-control col-3 mr-2 text-center" placeholder="HH" aria-label="Horas" id="horas"
-        (input)="validarLenghtHora($event)"> <span class="mt-1"><b>:</b></span>
+        (input)="validarLenghtHora($event)" (blur)="actualizarHoras($event)"> <span class="mt-1"><b>:</b></span>
       <input type="number" class="form-control col-3 ml-2 text-center" placeholder="MM" aria-label="Minutos"
-        id="minutos" (input)="validarLenghtMinuto($event)">
+        id="minutos" (input)="validarLenghtMinuto($event)" (blur)="actualizarMinutos($event)">
     </div>
   </div>
 
 </form>
 <div class="row">
   <div class="col-12 mt-4">
-    <button type="submit" class="btn btn-success w-100 rounded-pill">Confirmar</button>
+    <button type="submit" class="btn btn-success w-100 rounded-pill"  (click)="confirmar()">Confirmar</button>
   </div>
 </div>
+
+<div>{{message}}</div>
